@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.ivione.model.Sexo;
 
-public interface ISexoRepo extends JpaRepository<Sexo, Integer>{
+public interface ISexoRepo extends JpaRepository<Sexo, Long> {
 
 }

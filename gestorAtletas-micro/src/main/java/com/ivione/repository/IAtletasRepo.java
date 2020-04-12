@@ -13,7 +13,7 @@ public interface IAtletasRepo extends JpaRepository<Atletas, Long>{
 	// Consultas avanzadas
 	
 	@Query("SELECT a FROM Atletas a WHERE a.idAtleta = :idAtleta")
-	public List<Atletas> findAtletasId(@Param("idAtleta") Long idAtleta);
+	public Atletas findAtletaId(@Param("idAtleta") Long idAtleta);
 	
 	@Query("SELECT a FROM Atletas a WHERE a.nombre LIKE %:nombre% AND a.apellidos LIKE %:apellidos% "
 			+ "AND a.licencia LIKE %:licencia% ORDER BY id_atleta ASC")
