@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ivione.model.Resultados;
+import com.ivione.entity.Resultados;
 import com.ivione.repository.IResultadosRepo;
+import com.ivione.service.ResultadosService;
 
 @CrossOrigin
 @RestController
@@ -19,29 +20,26 @@ public class RestResultadosController {
 	@Autowired
 	private IResultadosRepo repo;
 	
+	@Autowired
+	private ResultadosService service;
+	
 	@RequestMapping(value = "/resultados", method = RequestMethod.GET)
 	public List<Resultados> listar() {
-		return repo.findAll();
+		return (List<Resultados>) repo.findAll();
 	}
 	
-	@RequestMapping(value = "/resultados/{id}", method = RequestMethod.GET)
-	public List<Resultados> todasComp(@PathVariable("id") Long idAtleta) {
-		return repo.resultadosAtleta(idAtleta);
+	@RequestMapping(value = "/resultados/atleta/{idAtleta}", method = RequestMethod.GET)
+	public List<Resultados> getResultadosByAtleta(@PathVariable("idAtleta") Long idAtleta) {
+		return service.getResultadosByAtleta(idAtleta);
 	}
 	
-	/*@PostMapping
-	public void insertar(@RequestBody Atletas atl) {
-		repo.save(atl);
+	@RequestMapping(value = "/resultados/prueba/{idPrueba}", method = RequestMethod.GET)
+	public List<Resultados> getResultadosbyPrueba(@PathVariable("idPrueba") Long idPrueba) {
+		return service.getResultadosbyPrueba(idPrueba);
 	}
 	
-	@PutMapping
-	public void modificar(@RequestBody Atletas atl) {
-		repo.save(atl);
-	}
-	
-	@DeleteMapping(value="/delete/{id}")
-	public void eliminar(@PathVariable("id") Long id) {
-		repo.deleteById(id);
-	}*/
-
+	/*@RequestMapping(value = "/resultados/all", method = RequestMethod.GET)
+	public List<Resultados> findResultados() {
+		return repo.findResultados();
+	}*/ // Necesito MAPEO
 }

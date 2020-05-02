@@ -1,13 +1,10 @@
-package com.ivione.model;
+package com.ivione.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,20 +13,17 @@ public class Resultados {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_resultados")
+	@Column(name = "id_resultado")
 	private Long idResultados;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_competicion")
-	private Competicion competicion;
+	@Column(name = "id_competicion")
+	private Long idCompeticion;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_atleta")
-	private Atletas atleta;
+	@Column(name = "id_atleta")
+	private Long idAtleta;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_prueba")
-	private Prueba prueba;
+	@Column(name = "id_prueba")
+	private Long idPrueba;
 	
 	@Column(name = "marca")
 	private String marca;
@@ -39,12 +33,12 @@ public class Resultados {
 	
 	public Resultados() {}
 
-	public Resultados(Long idResultados, Competicion competicion, Atletas atleta, Prueba prueba, String marca,
+	public Resultados(Long idResultados, Long idCompeticion, Long idAtleta, Long idPrueba, String marca,
 			String puntos) {
 		this.idResultados = idResultados;
-		this.competicion = competicion;
-		this.atleta = atleta;
-		this.prueba = prueba;
+		this.idCompeticion = idCompeticion;
+		this.idAtleta = idAtleta;
+		this.idPrueba = idPrueba;
 		this.marca = marca;
 		this.puntos = puntos;
 	}
@@ -57,28 +51,28 @@ public class Resultados {
 		this.idResultados = idResultados;
 	}
 
-	public Competicion getCompeticion() {
-		return competicion;
+	public Long getIdCompeticion() {
+		return idCompeticion;
 	}
 
-	public void setCompeticion(Competicion competicion) {
-		this.competicion = competicion;
+	public void setIdCompeticion(Long idCompeticion) {
+		this.idCompeticion = idCompeticion;
 	}
 
-	public Atletas getAtleta() {
-		return atleta;
+	public Long getIdAtleta() {
+		return idAtleta;
 	}
 
-	public void setAtleta(Atletas atleta) {
-		this.atleta = atleta;
+	public void setIdAtleta(Long idAtleta) {
+		this.idAtleta = idAtleta;
 	}
 
-	public Prueba getPrueba() {
-		return prueba;
+	public Long getIdPrueba() {
+		return idPrueba;
 	}
 
-	public void setPrueba(Prueba prueba) {
-		this.prueba = prueba;
+	public void setIdPrueba(Long idPrueba) {
+		this.idPrueba = idPrueba;
 	}
 
 	public String getMarca() {

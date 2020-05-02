@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ivione.model.Categoria;
+import com.ivione.entity.Categoria;
 import com.ivione.repository.ICategoriasRepo;
 
 @CrossOrigin

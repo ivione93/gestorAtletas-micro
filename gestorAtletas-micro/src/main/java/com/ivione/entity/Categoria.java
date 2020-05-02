@@ -1,4 +1,4 @@
-package com.ivione.model;
+package com.ivione.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

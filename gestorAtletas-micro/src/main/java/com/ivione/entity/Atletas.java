@@ -1,18 +1,12 @@
-package com.ivione.model;
+package com.ivione.entity;
 
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity()
@@ -45,21 +39,16 @@ public class Atletas {
 	@Column(name = "email")
 	private String email;
 	
-	@ManyToOne
-	@JoinColumn(name = "id_sexo")
-	private Sexo sexo;
+	@Column(name = "id_sexo")
+	private Long idSexo;
 	
-	@ManyToOne
-	@JoinColumn(name = "id_categoria")
-	private Categoria categoria;
-	
-	@OneToMany(mappedBy = "atleta", cascade = CascadeType.ALL)
-	private List<Resultados> resultados = new ArrayList<>();
+	@Column(name = "id_categoria")
+	private Long idCategoria;
 	
 	public Atletas() {}
 
 	public Atletas(Long idAtleta, String nombre, String apellidos, Date fechaNacimiento, String licencia, String ciudad,
-			String telefono, String email, Sexo sexo, Categoria categoria, List<Resultados> resultados) {
+			String telefono, String email, Long idSexo, Long idCategoria) {
 		this.idAtleta = idAtleta;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
@@ -68,9 +57,8 @@ public class Atletas {
 		this.ciudad = ciudad;
 		this.telefono = telefono;
 		this.email = email;
-		this.sexo = sexo;
-		this.categoria = categoria;
-		this.resultados = resultados;
+		this.idSexo = idSexo;
+		this.idCategoria = idCategoria;
 	}
 
 	public Long getIdAtleta() {
@@ -137,27 +125,19 @@ public class Atletas {
 		this.email = email;
 	}
 
-	public Sexo getSexo() {
-		return sexo;
+	public Long getIdSexo() {
+		return idSexo;
 	}
 
-	public void setSexo(Sexo sexo) {
-		this.sexo = sexo;
+	public void setIdSexo(Long idSexo) {
+		this.idSexo = idSexo;
 	}
 
-	public Categoria getCategoria() {
-		return categoria;
+	public Long getIdCategoria() {
+		return idCategoria;
 	}
 
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
-	
-	public List<Resultados> getResultados() {
-		return resultados;
-	}
-	
-	public void setResultados(List<Resultados> resultados) {
-		this.resultados = resultados;
+	public void setIdCategoria(Long idCategoria) {
+		this.idCategoria = idCategoria;
 	}
 }
