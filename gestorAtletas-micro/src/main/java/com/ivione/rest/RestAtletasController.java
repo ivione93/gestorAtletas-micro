@@ -72,17 +72,17 @@ public class RestAtletasController {
 		return service.getAtletasBySexo(nombre, apellidos, licencia, idSexo);
 	}
 	
-	// Añadir atletas
-	@RequestMapping(value = "/atletas/new", method = RequestMethod.POST)
-	public void insertar(@RequestBody Atletas atl) {
+	// Añadir/editar atletas
+	@RequestMapping(value = "/atletas", method = RequestMethod.POST)
+	public void nuevoEditar(@RequestBody Atletas atl) {
 		repo.save(atl);
 	}
 	
 	// Editar atletas
-	@RequestMapping(value = "/atletas/edit", method = RequestMethod.PUT)
+	/*@RequestMapping(value = "/atletas/edit", method = RequestMethod.PUT)
 	public void modificar(@RequestBody Atletas atl) {
 		repo.save(atl);
-	}
+	}*/
 	
 	// Eliminar atletas
 	@RequestMapping(value = "/atletas/delete/{idAtleta}", method = RequestMethod.DELETE)
