@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ivione.entity.Atletas;
 import com.ivione.entity.Resultados;
 import com.ivione.repository.IResultadosRepo;
 import com.ivione.service.ResultadosService;
