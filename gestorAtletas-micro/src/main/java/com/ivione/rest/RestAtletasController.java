@@ -73,7 +73,7 @@ public class RestAtletasController {
 	}
 	
 	// Añadir atletas
-	@RequestMapping(value = "/atletas", method = RequestMethod.POST)
+	@RequestMapping(value = "/atletas/new", method = RequestMethod.POST)
 	public void insertar(@RequestBody Atletas atl) {
 		repo.save(atl);
 	}
