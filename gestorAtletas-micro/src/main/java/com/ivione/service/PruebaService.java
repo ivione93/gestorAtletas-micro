@@ -17,5 +17,8 @@ public class PruebaService {
 	public List<Prueba> getPruebasFiltros(Long idSexo, Long idCategoria, Long idAmbito, Long idSector) {
 		return repo.findPruebasFiltros(idSexo, idCategoria, idAmbito, idSector);
 	}
+	public List<Prueba> getIdPrueba(Long idSexo, Long idCategoria, Long idAmbito, Long idSector, Long idEspecialidad) {
+		return repo.findIdPrueba(idSexo, idCategoria, idAmbito, idSector, idEspecialidad);
+	}
 
 }
