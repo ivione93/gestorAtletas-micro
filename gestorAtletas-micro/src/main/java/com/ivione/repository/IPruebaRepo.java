@@ -20,9 +20,9 @@ public interface IPruebaRepo extends JpaRepository<Prueba, Long> {
 	@Query("SELECT p FROM Prueba p WHERE p.idSexo = :idSexo AND p.idCategoria = :idCategoria "
 			+ "AND p.idAmbito = :idAmbito AND p.idSector = :idSector AND p.idEspecialidad = :idEspecialidad")
 	public List<Prueba> findIdPrueba(@Param("idSexo") Long idSexo,
-										   @Param("idCategoria") Long idCategoria,
-										   @Param("idAmbito") Long idAmbito,
-										   @Param("idSector") Long idSector,
-										   @Param("idEspecialidad") Long idEspecialidad);
+									@Param("idCategoria") Long idCategoria,
+									@Param("idAmbito") Long idAmbito,
+									@Param("idSector") Long idSector,
+									@Param("idEspecialidad") Long idEspecialidad);
 	
 }

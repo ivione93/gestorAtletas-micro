@@ -39,11 +39,11 @@ public class RestPruebaController {
 	
 	@RequestMapping(value = "/pruebas/sexo/{idSexo}/categoria/{idCategoria}/ambito/{idAmbito}/sector/{idSector}/especialidad/{idEspecialidad}", 
 			method = RequestMethod.GET)
-public List<Prueba> getIdPrueba(@PathVariable("idSexo") Long idSexo,
-								  @PathVariable("idCategoria") Long idCategoria,
-								  @PathVariable("idAmbito") Long idAmbito,
-								  @PathVariable("idSector") Long idSector,
-								  @PathVariable("idEspecialidad") Long idEspecialidad) {
-return service.getIdPrueba(idSexo, idCategoria, idAmbito, idSector, idEspecialidad);
-}
+	public List<Prueba> getIdPrueba(@PathVariable("idSexo") Long idSexo,
+									  @PathVariable("idCategoria") Long idCategoria,
+									  @PathVariable("idAmbito") Long idAmbito,
+									  @PathVariable("idSector") Long idSector,
+									  @PathVariable("idEspecialidad") Long idEspecialidad) {
+		return service.getIdPrueba(idSexo, idCategoria, idAmbito, idSector, idEspecialidad);
+	}
 }
