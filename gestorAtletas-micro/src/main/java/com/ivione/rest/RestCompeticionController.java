@@ -26,11 +26,17 @@ public class RestCompeticionController {
 	private CompeticionService service;
 	
 	// Buscar competiciones
+	
 	@RequestMapping(value = "/competiciones", method = RequestMethod.GET)
 	public List<Competicion> getCompeticionesFiltros(
 			@RequestParam(required = false, defaultValue = "") String nCompeticion,
 			@RequestParam(required = false, defaultValue = "") String lugar) {
 		return service.getCompeticionesFiltros(nCompeticion, lugar);
+	}
+	
+	@RequestMapping(value = "/competiciones/{idCompeticion}", method = RequestMethod.GET)
+	public Competicion getCompeticionById(@PathVariable("idCompeticion") Long idCompeticion) {
+		return service.getCompeticionById(idCompeticion);
 	}
 	
 	// Añadir competiciones

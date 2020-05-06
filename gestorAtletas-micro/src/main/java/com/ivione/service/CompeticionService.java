@@ -17,4 +17,8 @@ public class CompeticionService {
 	public List<Competicion> getCompeticionesFiltros(String nCompeticion, String lugar) {
 		return repo.findCompeticiones(nCompeticion, lugar);
 	}
+	
+	public Competicion getCompeticionById(Long idCompeticion) {
+		return repo.findCompeticionById(idCompeticion);
+	}
 }
