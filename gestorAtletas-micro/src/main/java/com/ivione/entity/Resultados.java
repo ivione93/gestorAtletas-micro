@@ -33,8 +33,7 @@ public class Resultados {
 	
 	public Resultados() {}
 
-	public Resultados(Long idResultados, Long idCompeticion, Long idAtleta, Long idPrueba, String marca,
-			String puntos) {
+	public Resultados(Long idResultados, Long idCompeticion, Long idAtleta, Long idPrueba, String marca, String puntos) {
 		this.idResultados = idResultados;
 		this.idCompeticion = idCompeticion;
 		this.idAtleta = idAtleta;
@@ -84,10 +83,48 @@ public class Resultados {
 	}
 
 	public String getPuntos() {
+		String puntos = calculaPuntos(idPrueba, marca).toString();
 		return puntos;
 	}
 
 	public void setPuntos(String puntos) {
+		puntos = calculaPuntos(idPrueba, marca).toString();
 		this.puntos = puntos;
+	}
+	
+	public String calculaPuntos(Long idPrueba, String marca) {
+		Double puntosHungaros = 0.0;
+		String max = "1400";
+		String maxMarca[] = {"9.46", "18.90", "41.97", "2:05.82"};
+		
+		switch (idPrueba.intValue()) {
+		case 3:
+		case 4:
+		case 11:
+		case 12:
+			puntosHungaros = ((Double.parseDouble(max) * Double.parseDouble(maxMarca[0])) / Double.parseDouble(marca));
+			break;
+		case 5:
+		case 6:
+		case 13:
+		case 14:
+			puntosHungaros = (Double.parseDouble(max) * Double.parseDouble(maxMarca[1])) / Double.parseDouble(marca);
+			break;
+		case 9:
+		case 10:
+		case 17:
+		case 18:
+			puntosHungaros = (Double.parseDouble(max) * Double.parseDouble(maxMarca[2])) / Double.parseDouble(marca);
+			break;
+		case 23:
+		case 24:
+		case 33:
+		case 34:
+			puntosHungaros = (Double.parseDouble(max) * Double.parseDouble(maxMarca[2])) / Double.parseDouble(marca);
+			break;
+		default:
+			break;
+		}
+		return String.valueOf(Math.round(puntosHungaros));
 	}
 }

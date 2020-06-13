@@ -44,9 +44,4 @@ public class RestResultadosController {
 	public void insertar(@RequestBody Resultados resultado) {
 		repo.save(resultado);
 	}
-	
-	/*@RequestMapping(value = "/resultados/all", method = RequestMethod.GET)
-	public List<Resultados> findResultados() {
-		return repo.findResultados();
-	}*/ // Necesito MAPEO
 }

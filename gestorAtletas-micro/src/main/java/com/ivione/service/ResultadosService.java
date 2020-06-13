@@ -19,7 +19,13 @@ public class ResultadosService {
 	}
 	
 	public List<Resultados> getResultadosbyPrueba(Long idPrueba) {
-		return repo.findResultadosbyPrueba(idPrueba);
+		List<Resultados> resultados = null;
+		if(idPrueba >= 71 && idPrueba <= 100) {
+			resultados = repo.findResultadosbyPruebaDesc(idPrueba);
+		} else {
+			resultados = repo.findResultadosbyPruebaAsc(idPrueba);
+		}
+		return resultados;
 	}
 
 }
